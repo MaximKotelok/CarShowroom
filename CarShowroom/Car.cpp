@@ -1,11 +1,16 @@
 #include "Car.h"
 car::car() {}
 
-car::car(string title, int year_of_manufacture, int engine_capacity, double price) {
+car::car(int id, string title, int year_of_manufacture, int engine_capacity, double price) {
+	this->id = id;
 	this->title = title;
 	this->year_of_manufacture = year_of_manufacture;
 	this->engine_capacity = engine_capacity;
 	this->price = price;
+}
+
+int car::get_id() const {
+	return id;
 }
 
 string car::get_title() const {
@@ -24,8 +29,9 @@ double car::get_price() const {
 	return price;
 }
 
-car car::create_new_car() {
+car car::create_new_car(int id) {
 	car c;
+	c.id = id;
 	cout << "Title: ";
 	getline(cin, c.title);
 	cout << "Year of manufacture: ";
@@ -38,6 +44,7 @@ car car::create_new_car() {
 }
 
 void car::print() const {
-	cout << title << " | year of manufacture: " << year_of_manufacture << " | engine capacity: " << engine_capacity << " | price: " << price << "\n";
+	cout <<id<<". " << title << " | year of manufacture: " << year_of_manufacture << " | engine capacity: " << engine_capacity << " | price: " << price << "\n";
 
 }
+

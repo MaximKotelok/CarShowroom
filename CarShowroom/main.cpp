@@ -1,7 +1,19 @@
 #include "CarShowroom.h"
 
+fstream& operator>>(fstream& fin, car& c) {
+	fin >>c.id>> c.title >> c.year_of_manufacture >> c.engine_capacity >> c.price;
+	replace(c.title.begin(), c.title.end(), '_', ' ');
+	return fin;
+}
+fstream& operator<<(fstream& fout, car& c) {
+	string tmp_t = c.title;
+	replace(tmp_t.begin(), tmp_t.end(), ' ', '_');
+	fout <<c.id<<" " << tmp_t << " " << c.year_of_manufacture << " " << c.engine_capacity << " " << c.price << "\n";
+	return fout;
+}
+
 int main() {
-	CarShowroom cs;
+	CarShowroom cs("save.txt");
 
 	do {
 		int choice;
@@ -11,6 +23,7 @@ int main() {
 		cout << "4. Descending sort\n";
 		cout << "5. Ascending Sort\n";
 		cout << "6. Find by title\n";
+		cout << "7. Save\n";
 		(cin>>choice).get();
 		if (choice == 0)
 			break;
@@ -23,10 +36,10 @@ int main() {
 			cs.add_car();
 			break;
 		case 3: {
-			string title;
-			cout << "Enter title: ";
-			getline(cin, title);
-			cs.delete_by_title(title);
+			int id;
+			cout << "Enter id: ";
+			(cin >> id).get();
+			cs.delete_by_id(id);
 		}break;
 		case 4:
 			cs.sorting([](const car& one, const car& two) {return one.get_price() > two.get_price(); });
@@ -35,12 +48,16 @@ int main() {
 			cs.sorting([](const car& one, const car& two) {return one.get_price() < two.get_price(); });
 			break;
 		case 6: {
-			string title;
-			cout << "Enter title: ";
-			getline(cin, title);
+			int id;
+			cout << "Enter id: ";
+			(cin >> id).get();
 			cout << "\n\n";
-			cs.search([title](const car& c) {return c.get_title() == title; }).print();
+			cs.search([id](const car& c) {return c.get_id() == id; }).print();
+			cout << "\n\n";
 		}break;
+		case 7:
+			cs.save();
+			break;
 			
 		}
 	} while (true);
