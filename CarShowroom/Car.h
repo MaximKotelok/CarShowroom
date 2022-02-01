@@ -33,4 +33,5 @@ public:
 
 	friend fstream& operator>>(fstream& fin, car& c);
 	friend fstream& operator<<(fstream& fout, car& c);
+
 };

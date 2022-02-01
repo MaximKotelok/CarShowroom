@@ -13,8 +13,9 @@ CarShowroom::CarShowroom(string path) {
 
 void CarShowroom::add_car() {
 	int get_id = 0;
-	if (cars.size() != 0)
-		get_id = cars[cars.size() - 1].get_id()+1;
+	for (auto el : cars)
+		if (el.get_id() > get_id)
+			get_id = el.get_id()+1;
 	cars.push_back(car::create_new_car(get_id));
 }
 
