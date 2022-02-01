@@ -20,19 +20,19 @@ public:
 		this->price = price;
 	}
 
-	string get_title() {
+	string get_title() const {
 		return title;
 	}
 
-	int get_year_of_manufacture() {
+	int get_year_of_manufacture() const {
 		return year_of_manufacture;
 	}
 
-	int get_engine_capacity() {
+	int get_engine_capacity() const {
 		return engine_capacity;
 	}
 
-	double get_price() {
+	double get_price() const {
 		return price;
 	}
 
@@ -46,9 +46,10 @@ public:
 		cin >> c.engine_capacity;
 		cout << "Price: ";
 		cin >> c.price;
+		return c;
 	}
 
-	void print() {
+	void print() const {
 		cout << title << " | year of manufacture: " << year_of_manufacture << " | engine capacity: " << engine_capacity << " | price: " << price << "\n";
 
 	}

@@ -17,15 +17,17 @@ public:
 	}
 
 	void print_all() {
+		cout << string(50, '=');
 		for (auto el : cars)
 			el.print();
+		cout << string(50, '=');
 	}
 
-	void sorting(function<bool(car,car)> callback) {
+	void sorting(function<bool(const car&, const car&)> callback) {
 		sort(cars.begin(), cars.end(), callback);
 	}
 
-	car& search(function<bool(car)> callback) {
+	car& search(function<bool(const car&)> callback) {
 		return *find_if(cars.begin(), cars.end(), callback);
 	}
 };
