@@ -3,5 +3,9 @@
 #include <vector>;
 class CarShowroom
 {
+	vector<car> cars;
+
+public:
+	
 };
 
