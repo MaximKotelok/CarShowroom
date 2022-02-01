@@ -11,46 +11,19 @@ class car {
 	double price;
 
 public:
-	car() {}
+	car();
 
-	car(string title, int year_of_manufacture, int engine_capacity, double price) {
-		this->title = title;
-		this->year_of_manufacture = year_of_manufacture;
-		this->engine_capacity = engine_capacity;
-		this->price = price;
-	}
+	car(string title, int year_of_manufacture, int engine_capacity, double price);
 
-	string get_title() const {
-		return title;
-	}
+	string get_title() const;
 
-	int get_year_of_manufacture() const {
-		return year_of_manufacture;
-	}
+	int get_year_of_manufacture() const;
 
-	int get_engine_capacity() const {
-		return engine_capacity;
-	}
+	int get_engine_capacity() const;
 
-	double get_price() const {
-		return price;
-	}
+	double get_price() const;
 
-	static car create_new_car() {
-		car c;
-		cout << "Title: ";
-		getline(cin,c.title);
-		cout << "Year of manufacture: ";
-		cin >> c.year_of_manufacture;
-		cout << "Engine capacity: ";
-		cin >> c.engine_capacity;
-		cout << "Price: ";
-		cin >> c.price;
-		return c;
-	}
+	static car create_new_car();
 
-	void print() const {
-		cout << title << " | year of manufacture: " << year_of_manufacture << " | engine capacity: " << engine_capacity << " | price: " << price << "\n";
-
-	}
+	void print() const;
 };

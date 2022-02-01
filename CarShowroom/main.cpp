@@ -38,6 +38,7 @@ int main() {
 			string title;
 			cout << "Enter title: ";
 			getline(cin, title);
+			cout << "\n\n";
 			cs.search([title](const car& c) {return c.get_title() == title; }).print();
 		}break;
 			
