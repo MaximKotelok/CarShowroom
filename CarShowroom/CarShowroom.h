@@ -1,8 +1,11 @@
 #pragma once
-#include "Car.h"
 #include <vector>
 #include <functional>
 #include <algorithm>
+#include <numeric>
+
+#include "Car.h"
+#include "Exceptions.h"
 class CarShowroom
 {
 	vector<car> cars;
@@ -10,6 +13,10 @@ class CarShowroom
 	string path;
 public:
 	CarShowroom(string path);
+
+	int get_size();
+
+	int get_total_cost();
 
 	void add_car();
 

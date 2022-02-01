@@ -32,6 +32,8 @@ public:
 	void print() const;
 
 	friend fstream& operator>>(fstream& fin, car& c);
+	
 	friend fstream& operator<<(fstream& fout, car& c);
 
+	friend ostream& operator<<(ostream& os, car& c);
 };

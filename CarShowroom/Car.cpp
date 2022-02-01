@@ -44,7 +44,12 @@ car car::create_new_car(int id) {
 }
 
 void car::print() const {
-	cout <<id<<". " << title << " | year of manufacture: " << year_of_manufacture << " | engine capacity: " << engine_capacity << " | price: " << price << "\n";
+	
+	cout << "ID: " << id << "\n";
+	cout << "Title: " << title << "\n";
+	cout << "Year of manufacture : " << year_of_manufacture << "\n";
+	cout << "Engine capacity : " << engine_capacity << "\n";
+	cout << "Price : " << price << "\n";
 
 }
 
